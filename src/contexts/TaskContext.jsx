@@ -10,13 +10,16 @@ export default function ContextProvider({children}) {
 
     // Fonction pour ajouter une tâche
     const addTask = (task) => {
+        if(!task.trim()) {
+            alert("Veuillez d'abord écrire votre tâche !");
+            return;
+        }
+
         const date = Date.now();
         const newTask = [...tasks, {id: date, name: task}]
         
         setTasks(newTask);
-
         localStorage.setItem("tasks", JSON.stringify(newTask));
-
         setInput("");
     };
 
