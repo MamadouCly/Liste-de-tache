@@ -1,0 +1,119 @@
+// Couleurs globales
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #fff;
+$dark: #000;
+$body-bg: #fff;
+
+// Palette complète
+$theme-colors: (
+    "primary": #123456,
+    "secondary": #789abc,
+    "danger": #ff4444,
+    "brand": #ff8800,
+    "muted": #999999,
+);
+
+// Typographie
+$font-family-sans-serif: -apple-system, "Sergoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+$font-family-base: $font-family-sans-serif;
+$font-size-base: 1rem;   // 16px
+$font-weight-base: 400;
+$font-height-base: 1.5;
+
+// Espacements (spacing)
+$spacer: 1rem;  // base spacer
+$spacers: (
+    0: 0,
+    1: .25rem,
+    2: .5rem,
+    3: 1rem,
+    4: 1.5rem,
+    5: 3rem
+);
+
+// Arrondis
+$border-width: 1px;
+$border-color: rgba(0,0,0,.125);
+$border-radius: .25rem;  // 4px
+$border-radius-sm: .2rem;
+$border-radius-lg: .3rem;
+$btn-border-radius: .375rem;  // 6px
+
+// Grille & breakpoints
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1320px
+);
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
+);
+$grid-colums: 12;
+$grid-gutter-width: 1.5rem;  // Total gutter (left+right aggregated)
+
+// Boutons
+$btn-padding-y: .375rem;
+$btn-padding-x: .75rem;
+$btn-font-weight: 400;
+$btn-line-height: 1.5;
+$btn-border-radius: .375rem;
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+// Formulaires (inputs)
+$input-pading-y: .375rem;
+$input-pading-x: .75rem;
+$input-font-family: $font-family-base;
+$input-bg: $body-bg;   // Généralement blanc
+$input-border-color: $border-color;
+$input-border-radius: .25rem;
+$input-focus-border: .25rem;
+$input-focus-box-shadow: 0 0 0 .2rem rgba(13,110,253,.25);   // Exemple pour primary focus
+
+// Cartes (cards)
+$card-spacer-y: 1rem;
+$card-spacer-x: 1rem;
+$card-border-radius: .25rem;
+$card-border-width: 1px;
+$card-cap-bg: rgba(0,0,0,0.3);
+
+// Modals
+$modal-content-bg: #fff;
+$modal-content-border-radius: .5rem;
+$modal-backdrop-opacity: .5;
+$modal-header-border-color: rgba(0,0,0,.125);
+
+// Navbar
+$navbar-padding-y: .5rem;
+$navbar-nav-link-padding-x: .5rem;
+$navbar-dark-color: rgba(225,255,255,.55);
+$navbar-light-color: rgba(0,0,0,.55);
+
+// Ombrages (shadows)
+$box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+$box-shadow-sm: 0 .125rem .25rem rgba(0,0,0,.075);
+$box-shadow-lg: 0 1rem 3rem rgba(0,0,0,.175);
+
+// Transitions & animations
+$transition-base: .25rem;
+$transition-fade: .15s;
+$transition-collapse: .35s;
+
+// Utilities toggles (activer/désactiver features)
+$enable-rounded: true;
+$enable-shadows: true;
+$enable-gradients: true;
+$enable-transitions: true;
