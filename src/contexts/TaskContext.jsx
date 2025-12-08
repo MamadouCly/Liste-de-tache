@@ -7,6 +7,7 @@ export const ContextTask = createContext();
 export default function ContextProvider({children}) {
     const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
     const [input, setInput] = useState("");
+    const [etat, setEtat] = useState("Prioritaire");
 
     // Fonction pour ajouter une tâche
     const addTask = (task) => {
@@ -16,7 +17,7 @@ export default function ContextProvider({children}) {
         }
 
         const date = Date.now();
-        const newTask = [...tasks, {id: date, name: task}]
+        const newTask = [...tasks, {id: date, name: input, option: etat}]
         
         setTasks(newTask);
         localStorage.setItem("tasks", JSON.stringify(newTask));
@@ -27,6 +28,12 @@ export default function ContextProvider({children}) {
     const handleChange = (event) => {
         const {name, value} = event.target;
         setInput(value);
+    }
+
+    // Fonction pour changer l'etat de priorité
+    const handleChangePriority = (event) => {
+        const {name, value} = event.target;
+        setEtat(value);
     }
     
     // Fonction pour supprimer une tâche
@@ -40,7 +47,7 @@ export default function ContextProvider({children}) {
     }
 
     return (
-        <ContextTask.Provider value={{tasks, addTask, handleChange, input, removeTask}}>
+        <ContextTask.Provider value={{tasks, addTask, handleChange, input, removeTask, handleChangePriority}}>
             {children}
         </ContextTask.Provider>
     ); 

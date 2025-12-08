@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ContextTask } from "../contexts/TaskContext";
 
 export default function Header() {
-  const { addTask, input, handleChange } = useContext(ContextTask);
+  const { addTask, input, etat, handleChange, handleChangePriority } = useContext(ContextTask);
 
   return (
     <div className="mt-4">
@@ -13,7 +13,12 @@ export default function Header() {
         value={input}
         onChange={handleChange}
       />
-      <button className="btn btn-primary" type="button" onClick={() => addTask(input)}>
+      <select onChange={handleChangePriority}>
+        <option value={etat}>Prioritaire</option>
+        <option value={etat}>Moyenne</option>
+        <option value={etat}>Basse</option>
+      </select>
+      <button className="btn btn-primary ms-2" type="button" onClick={() => addTask(input)}>
         Ajouter
       </button>
     </div>
