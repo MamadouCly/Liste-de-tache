@@ -14,9 +14,9 @@ export default function Header() {
         onChange={handleChange}
       />
       <select onChange={handleChangePriority}>
-        <option value={etat}>Prioritaire</option>
-        <option value={etat}>Moyenne</option>
-        <option value={etat}>Basse</option>
+        <option value={"Prioritaire"}>Prioritaire</option>
+        <option value={"Moyenne"}>Moyenne</option>
+        <option value={"Basse"}>Basse</option>
       </select>
       <button className="btn btn-primary ms-2" type="button" onClick={() => addTask(input)}>
         Ajouter

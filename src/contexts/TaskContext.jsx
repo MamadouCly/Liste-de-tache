@@ -8,6 +8,7 @@ export default function ContextProvider({children}) {
     const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
     const [input, setInput] = useState("");
     const [etat, setEtat] = useState("Prioritaire");
+    const [filtrer, setFiltrer] = useState("Toute");
 
     // Fonction pour ajouter une tâche
     const addTask = (task) => {
@@ -69,10 +70,16 @@ export default function ContextProvider({children}) {
             localStorage.setItem("tasks", JSON.stringify(update));
             return update;
         });
-    }
+    };
 
+    // Fonction pour changer l'état de filtere
+    const handleChangeFilter = (event) => {
+        const {name, value} = event.target;
+        setFiltrer(value);
+    };
+    
     return (
-        <ContextTask.Provider value={{tasks, addTask, handleChange, input, removeTask, handleChangePriority, modifierTask, isChecked}}>
+        <ContextTask.Provider value={{tasks, addTask, handleChange, input, filtrer, removeTask, handleChangePriority, modifierTask, isChecked, handleChangeFilter}}>
             {children}
         </ContextTask.Provider>
     ); 
