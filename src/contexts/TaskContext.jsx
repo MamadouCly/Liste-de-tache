@@ -17,7 +17,7 @@ export default function ContextProvider({children}) {
         }
 
         const date = Date.now();
-        const newTask = [...tasks, {id: date, name: input, option: etat}]
+        const newTask = [...tasks, {id: date, name: input, option: etat, done: false}];
         
         setTasks(newTask);
         localStorage.setItem("tasks", JSON.stringify(newTask));
@@ -28,13 +28,13 @@ export default function ContextProvider({children}) {
     const handleChange = (event) => {
         const {name, value} = event.target;
         setInput(value);
-    }
+    };
 
     // Fonction pour changer l'etat de priorité
     const handleChangePriority = (event) => {
         const {name, value} = event.target;
         setEtat(value);
-    }
+    };
     
     // Fonction pour supprimer une tâche
     const removeTask = (id) => {
@@ -44,10 +44,35 @@ export default function ContextProvider({children}) {
 
             return newTask
         });
+    };
+
+    // Fonction pour modifier une tâche
+    const modifierTask = (id) => {
+        const newContent = prompt("Ecit votre nouvelle tâche !");
+        const priority = prompt("Priorité ?");
+        setTasks((prev) => {
+            const update = prev.map((item) => (
+                item.id === id ? {...item, name: newContent, option: priority} : item
+            ));
+
+            localStorage.setItem("tasks", JSON.stringify(update));
+            return update;
+        });
+    };
+
+    // Fonction pour marquer une tâche comme faite
+    const isChecked = (id) => {
+        setTasks((prev) => {
+            const update = prev.map((item) => (
+                item.id === id ? {...item, done: !item.done} : item
+            ));
+            localStorage.setItem("tasks", JSON.stringify(update));
+            return update;
+        });
     }
 
     return (
-        <ContextTask.Provider value={{tasks, addTask, handleChange, input, removeTask, handleChangePriority}}>
+        <ContextTask.Provider value={{tasks, addTask, handleChange, input, removeTask, handleChangePriority, modifierTask, isChecked}}>
             {children}
         </ContextTask.Provider>
     ); 
