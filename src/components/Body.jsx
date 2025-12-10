@@ -22,17 +22,17 @@ export default function Body() {
       </select>
 
       {taskFiltered.map((item) => (
-        <div key={item.id} className="task-container m-3" style={{background: item.done ? "orange" : "#000", color: item.done ? "#999" : "#fff"}}>
+        <div key={item.id} className="task-container m-3" style={{background: item.done ? "#b5b5b5" : "#000", color: item.done ? "#393939" : "#fff"}}>
           <div className="fw-bold name">
             <input type="checkbox" checked={item.done} onChange={() => isChecked(item.id)} /> {item.name}
             </div>
           <div className="fw-bold priority">Priorité : {item.option}</div>
           <div className="me-2">
-            <BsPencil
+            {item.done ? <></> : <BsPencil
               color="green"
               size={24}
               onClick={() => modifierTask(item.id)}
-            />
+            />}
           </div>
           <div className="icon">
             <BsTrash

@@ -5,7 +5,8 @@ export default function Header() {
   const { addTask, input, etat, handleChange, handleChangePriority } = useContext(ContextTask);
 
   return (
-    <div className="mt-4">
+    <>
+      <div className="mt-4 header">
       <input
         type="text"
         placeholder="Entrez une tâche"
@@ -18,9 +19,11 @@ export default function Header() {
         <option value={"Moyenne"}>Moyenne</option>
         <option value={"Basse"}>Basse</option>
       </select>
-      <button className="btn btn-primary ms-2" type="button" onClick={() => addTask(input)}>
+      <button className="btn ms-2" type="button" onClick={() => addTask(input)}>
         Ajouter
       </button>
     </div>
+    <hr />
+    </>
   );
 }
