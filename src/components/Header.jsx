@@ -5,8 +5,10 @@ export default function Header() {
   const { addTask, input, etat, handleChange, handleChangePriority } = useContext(ContextTask);
 
   return (
-    <>
-      <div className="mt-4 header">
+    <div className="container">
+      <div className="row">
+        <div className="col-12">
+          <div className="mt-4 header">
       <input
         type="text"
         placeholder="Entrez une tâche"
@@ -24,6 +26,8 @@ export default function Header() {
       </button>
     </div>
     <hr />
-    </>
+        </div>
+      </div>
+    </div>
   );
 }
